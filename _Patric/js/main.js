@@ -9,10 +9,11 @@ var lvl_one_map = [
     { name: "left wall", height: 200, width: 2000, posX: -1000, posY: 0, posZ: 0, rotX: 0, rotY: 90, rotZ: 0, color: "orange", opacity: 0.5 },
     // { name: "front wall", height: 200, width: 2000, posX: 0, posY: 0, posZ: 1000, rotX: 0, rotY: 0, rotZ: 0, color: "#ecc0d1", opacity: 0.5 },
     { name: "hinter wall", height: 200, width: 2000, posX: 0, posY: 0, posZ: -1000, rotX: 0, rotY: 0, rotZ: 0, color: "yellow", opacity: 0.5 },
+    { name: "wall001", height: 200, width: 200, posX: 0, posY: 0, posZ: 0, rotX: 0, rotY: 0, rotZ: 0, color: "black", opacity: 0.5}
 ];
 
 function createWorld(map) {
-    for (let i = 0; i < map.length; i++) {
+    for (let i = 0; i < map.length; i++) {  
         var mySquare = document.createElement("div");
         mySquare.id = map[i].name;
         mySquare.style.position = "absolute";
@@ -144,7 +145,7 @@ function collision(mapObj, leadObj) {
             // let point2 = new Array();
 
             if (Math.abs(point1[0]) < (mapObj[i].width + 70) / 2 && Math.abs(point1[1]) < (mapObj[i].height + 70) / 2 && Math.abs(point1[2]) < 50) {
-                console.log("collision!");
+                // console.log("collision!");
                 point1[2] = Math.sign(point0[2]) * 50;
                 let point2 = coorReTransform(point1[0], point1[1], point1[2], mapObj[i].rotX, mapObj[i].rotY, mapObj[i].rotZ);
                 let point3 = coorReTransform(point1[0], point1[1], 0, mapObj[i].rotX, mapObj[i].rotY, mapObj[i].rotZ);
